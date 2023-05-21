@@ -1,0 +1,2 @@
+For the implementation of secure user sessions with session-based authentication or tokwn-based authentication (JWT), we need to consider session management, token handling, session expiration, token refresh,
+and secure transmission of sensitive data.

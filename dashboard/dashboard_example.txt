@@ -1,0 +1,2 @@
+An example of a dashboard that displays available products and categories,
+along with options to browse categories and search specific products

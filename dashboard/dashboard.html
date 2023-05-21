@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Dashboard</title>
+	<style>
+		/* Styles for the dashboard */
+	</style>
+</head>
+<body>
+	<div id="userInfo" style="display: none;">
+		<h1>Welcome, <span id="loggedInUser"></span>!</h1>
+		<button id="logoutButton">Logout</button>
+	</div>
+
+	<div id="Dashboard" style="display: none;">
+		<h1>Dashboard</h1>
+
+		<div id="categories">
+			<h2>Categories</h2>
+			<ul id="categoryList">
+				<!-- Category list will be dynamically populated -->
+			</ul>
+		</div>
+
+		<div id="products">
+			<h2>Product</h2>
+			<ul id="productList">
+				<!-- Product list will be dynamically populated -->
+			</ul>
+		</div>
+
+		<div id="search">
+			<h2>Search Products</h2>
+			<input type="text" id="searchInput" placeholder="Enter product name">
+			<button id="searchButton">Search</button>
+		</div>
+	</div>
+
+	<script>
+		// Check if a session token is stored in localStorage
+		const token = localStorage.getItem("token");
+
+		if(token){
+			// If a session token exists, show the user info and logout button
+			showUserInfo();	
+		}else {
+			// If no session token exists, show the registration and login forms
+			showRegistrationLoginForm();
+		}
+
+		document.getElementById("logoutButton").addEventListener("click", function() {
+			// Clear the session token from localStorage
+			localStorage.removeItem("token");
+			// Show the registration and login forms
+			showRegistrationLoginForm();
+		});
+
+		function showUserInfo() {
+			// Hide the registration and login forms
+			document.getElementById("registrationForm").style.display = "none";
+			document.getElementById("loginForm").style.display = "none";
+
+			// Show the user info and logout button
+			document.getElementById("userInfo").style.display = "block";
+
+			// Display the logged-in user's name
+			const loggedUser = document.getElementById("loggedInUser");
+			loggedInUser.textContent = "John Doe"; // Replace with the actual logged-in user's name
+
+			function showRegistrationLoginForm() {
+				// Show the registration and login forms
+				document.getElementById("registrationForm").style.display = "block";
+				document.getElementById("loginForm").style.display = "block";
+
+				// Hide the user info and dashboard
+				document.getElementById("userInfo").style.display = "none";
+				document.getElementById("dashboard").style.display = "none";
+			}
+
+			function fetchDashboardData() {
+				// Simulated data for categories and products
+				const categories = ["Category 1", "Category 2", "Category 3"];
+				const products = ["Product 1", "Prodcut 2", "Product 3", "Product 4", "Product 5"];
+
+				// Display the dashboard
+				document.getElementById("dashboard").style.display = "block";
+
+				// Populate the category list
+				const categoryList = document.getElementById("categoryList");
+				categories.forEach(category => {
+					const listItem = document.createElement("li");
+					listItem.textContent = category;
+					categoryList.appendChild(listItem);
+				});
+
+				// Populate the product list
+				const categoryList = document.getElementById("categoryList");
+				categories.forEach(category => {
+					const listItem = document.createElement("li");
+					listItem.textContent = category;
+					categoryList.appendChild(listItem);
+				});
+
+				// Populate the product list
+				const productList = document.getElementById("productList");
+				products.forEach(product => {
+					const listItem = document.createElement("li");
+					listItem.textContent = product;
+					productList
+				})
+			}
+		}

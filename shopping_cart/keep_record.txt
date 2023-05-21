@@ -1,0 +1,19 @@
+Set up a database:
+
+Create a MySQL database and name it "order_history".
+Create a table named "orders" with the following columns:
+order_id (auto-incrementing primary key)
+order_date (datetime)
+user_id (integer, foreign key to user table)
+item_name (text)
+price_code (text)
+quantity (integer)
+total_cost (decimal)
+Update the checkout process:
+
+After the order is confirmed, save the order details to the "orders" table in the database, including the order_date, user_id, item_name, price_code, quantity, and total_cost.
+Create a page to display order history:
+
+Create a PHP page named "order_history.php".
+Retrieve the order history for the currently logged-in user from the database.
+Display the order details, including order_date, item_name, price_code, quantity, and total_cost, in a table format.

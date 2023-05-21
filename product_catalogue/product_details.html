@@ -1,0 +1,48 @@
+<!---An updated version of the code that allows users to click on a product to view more details, including a larger image, detailed description, and additional information about the product. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Catalog</title>
+  <style>
+    .product {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .product img {
+      max-width: 200px;
+    }
+    .product-details {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="product">
+    <img src="xyz_smartphone.jpg" alt="XYZ Smartphone">
+    <div class="product-details">
+      <h2>XYZ Smartphone</h2>
+      <p>The XYZ Smartphone features a powerful processor, a high-resolution display, and a professional-grade camera. Stay connected and capture stunning photos with this sleek and stylish device.</p>
+      <p>Price Code: $$</p>
+      <a href="xyz_smartphone_details.html">View More Details</a>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="abc_smart_tv.jpg" alt="ABC Smart TV">
+    <div class="product-details">
+      <h2>ABC Smart TV</h2>
+      <p>The ABC Smart TV offers a stunning 4K display and a smart operating system, allowing you to stream your favorite shows and movies seamlessly. Immerse yourself in the world of entertainment with this cutting-edge television.</p>
+      <p>Price Code: $$$</p>
+      <a href="abc_smart_tv_details.html">View More Details</a>
+    </div>
+  </div>
+
+<!-- Repeat the above structure for other products -->
+</body>
+</html>
+
+<!-- In the above code, you can replace the xyz_smartphone.jpg and abc_smart_tv.jpg with the actual image filenames for each product. Also, create separate HTML files (xyz_smartphone_details.html, abc_smart_tv_details.html, etc.) for each product's detailed view and provide the larger image, detailed description, and additional information in those files.
+     When a user clicks on "View More Details" for a specific product, it will navigate to the corresponding product details page where you can provide a larger image, detailed description, and any additional information about the product. -->

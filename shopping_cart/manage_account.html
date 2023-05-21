@@ -1,0 +1,103 @@
+<!-- Account settings page allows users change password -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Settings</title>
+  <style>
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input[type="password"],
+    input[type="text"],
+    select {
+      width: 300px;
+      padding: 5px;
+    }
+    button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Account Settings</h2>
+
+  <div id="password-change">
+    <h3>Change Password</h3>
+    <div class="form-group">
+      <label for="current-password">Current Password:</label>
+      <input type="password" id="current-password" required>
+    </div>
+    <div class="form-group">
+      <label for="new-password">New Password:</label>
+      <input type="password" id="new-password" required>
+    </div>
+    <button onclick="changePassword()">Change Password</button>
+  </div>
+
+  <div id="personal-info">
+    <h3>Personal Information</h3>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" required>
+    </div>
+    <button onclick="updatePersonalInfo()">Update Personal Info</button>
+  </div>
+
+  <div id="payment-methods">
+    <h3>Payment Methods</h3>
+    <div class="form-group">
+      <label for="credit-card">Credit Card:</label>
+      <input type="text" id="credit-card" required>
+    </div>
+    <div class="form-group">
+      <label for="paypal">PayPal:</label>
+      <input type="text" id="paypal" required>
+    </div>
+    <button onclick="updatePaymentMethods()">Update Payment Methods</button>
+  </div>
+
+  <script>
+    function changePassword() {
+      var currentPassword = document.getElementById('current-password').value;
+      var newPassword = document.getElementById('new-password').value;
+
+      // Perform password change request here
+      // You can use AJAX to send the request to the server-side script
+
+      // Example code to show success message
+      alert('Password changed successfully');
+    }
+
+    function updatePersonalInfo() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+
+      // Perform personal information update request here
+      // You can use AJAX to send the request to the server-side script
+
+      // Example code to show success message
+      alert('Personal information updated successfully');
+    }
+
+    function updatePaymentMethods() {
+      var creditCard = document.getElementById('credit-card').value;
+      var paypal = document.getElementById('paypal').value;
+
+      // Perform payment methods update request here
+      // You can use AJAX to send the request to the server-side script
+
+      // Example code to show success message
+      alert('Payment methods updated successfully');
+    }
+  </script>
+</body>
+</html>

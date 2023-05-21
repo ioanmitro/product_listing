@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration and Login</title>
+    <style>
+        /* Styles for the registration and login forms */
+    </style>
+</head>
+<body>
+    <div id="registrationForm" class="form">
+        <h1>User Registration</h1>
+        <form>
+            <!-- Registration form fields -->
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="loginForm" class="form">
+        <h1>User Login</h1>
+        <form>
+            <!-- Login form fields -->
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="userInfo" style="display: none;">
+        <h1>Welcome, <span id="loggedInUser"></span>!</h1>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+    <script>
+        // Check if a session token is stored in localStorage
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            // If a session token exists, show the user info and logout button
+            showUserInfo();
+        } else {
+            // If no session token exists, show the registration and login forms
+            showRegistrationLoginForm();
+        }
+
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the form inputs
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Create the request body
+            var requestBody = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            // Make a POST request to the registration endpoint
+            fetch("/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the backend
+                console.log(data); // Log the response data
+                // Additional logic based on the response
+
+                // Store the session token in localStorage
+                if (data.token) {
+                    localStorage.setItem("token", data.token);
+                    showUserInfo();
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Handle the error
+            });
+        });
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the form inputs
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Create the request body
+            var requestBody = {
+                username: username,
+                password: password
+            };
+
+            // Make a POST request to the login endpoint
+            fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.json())
+            .then(data => {
